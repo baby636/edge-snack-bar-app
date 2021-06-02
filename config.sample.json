@@ -1,0 +1,45 @@
+{
+    "coinCapUri": "https://api.coincap.io/v2/assets/",
+    "currencies": {
+        "BCH": {
+            "address": "",
+            "currencyName": "bitcoincash",
+            "coinCapCurrencyName": "bitcoin-cash"
+        },
+        "BTC": {
+            "address": "",
+            "currencyName": "bitcoin",
+            "coinCapCurrencyName": "bitcoin"
+        },
+        "DOGE": {
+            "address": "",
+            "currencyName": "dogecoin",
+            "coinCapCurrencyName": "dogecoin"
+        },
+        "ETH": {
+            "address": "",
+            "currencyName": "ethereum",
+            "coinCapCurrencyName": "ethereum"
+        },
+        "FIO": {
+            "address": "",
+            "currencyName": "fio",
+            "coinCapCurrencyName": "fio-protocol"
+        },
+        "LTC": {
+            "address": "",
+            "currencyName": "litecoin",
+            "coinCapCurrencyName": "litecoin"
+        },
+        "XMR": {
+            "address": "",
+            "currencyName": "monero",
+            "coinCapCurrencyName": "monero"
+        },
+        "XRP": {
+            "address": "",
+            "currencyName": "ripple",
+            "coinCapCurrencyName": "xrp"
+        }
+    }
+}
