@@ -2,11 +2,13 @@ import React from 'react'
 
 import constant from '../constant.json'
 import { BackButton } from './Buttons'
+import { PaymentCode } from './PaymentCode'
 
 const { selectedStr } = constant.codeScreen
 
 interface CodeScreenProps {
   coinSelection: string
+  qrCodeValue: string
   setShowCodeScreen: Function
 }
 
@@ -33,7 +35,10 @@ export function CodeScreen(props: CodeScreenProps): JSX.Element {
           {selectedStr}
           {props.coinSelection}
         </div>
-        <BackButton label="BACK" handleClick={handleBackBtnClick} />
+        <PaymentCode qrCodeValue={props.qrCodeValue} />
+        <div>
+          <BackButton label="BACK" handleClick={handleBackBtnClick} />
+        </div>
       </div>
     </>
   )
