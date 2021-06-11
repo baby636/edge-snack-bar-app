@@ -1,45 +1,37 @@
 {
-    "coinCapUri": "https://api.coincap.io/v2/assets/",
+    "ratesServerAddress": "https://rates1.edge.app/",
     "currencies": {
         "BCH": {
             "address": "",
-            "currencyName": "bitcoincash",
-            "coinCapCurrencyName": "bitcoin-cash"
+            "currencyName": "bitcoincash"
         },
         "BTC": {
             "address": "",
-            "currencyName": "bitcoin",
-            "coinCapCurrencyName": "bitcoin"
+            "currencyName": "bitcoin"
         },
         "DOGE": {
             "address": "",
-            "currencyName": "dogecoin",
-            "coinCapCurrencyName": "dogecoin"
+            "currencyName": "dogecoin"
         },
         "ETH": {
             "address": "",
-            "currencyName": "ethereum",
-            "coinCapCurrencyName": "ethereum"
+            "currencyName": "ethereum"
         },
         "FIO": {
             "address": "",
-            "currencyName": "fio",
-            "coinCapCurrencyName": "fio-protocol"
+            "currencyName": "fio"
         },
         "LTC": {
             "address": "",
-            "currencyName": "litecoin",
-            "coinCapCurrencyName": "litecoin"
+            "currencyName": "litecoin"
         },
         "XMR": {
             "address": "",
-            "currencyName": "monero",
-            "coinCapCurrencyName": "monero"
+            "currencyName": "monero"
         },
         "XRP": {
             "address": "",
-            "currencyName": "ripple",
-            "coinCapCurrencyName": "xrp"
+            "currencyName": "ripple"
         }
     }
 }
