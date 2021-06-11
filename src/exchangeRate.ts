@@ -1,47 +1,41 @@
-import { asNumber, asObject, asOptional, asString } from 'cleaners'
+import { asObject, asString } from 'cleaners'
 
 import config from '../config.json'
+import constant from './constant.json'
 
 export interface CurrencyOption {
   address: string
   currencyName: string
-  coinCapCurrencyName: string
 }
 
-const asPriceUsd = asObject({
-  priceUsd: asString
+const asRatesServerResponse = asObject({
+  currency_pair: asString,
+  date: asString,
+  exchangeRate: asString
 })
 
-const asCoinCapResponse = asObject({
-  data: asOptional(asPriceUsd),
-  error: asOptional(asString),
-  timestamp: asNumber
-})
-
-const uri: string = config.coinCapUri
+const baseUri: string = config.ratesServerAddress
+const route: string = 'v1/exchangeRate/'
+const queryStr: string = '?currency_pair=USD_'
 export const currencies: { [key: string]: CurrencyOption } = config.currencies
+
+const { errorMsg } = constant.exchangeRate
 
 export const fetchExchangeRates = async (): Promise<{
   [key: string]: number
 }> => {
   // Create an arry of promises
   const promisesArr = Object.keys(currencies).map(async currencyCode => {
-    const currencyData = currencies[currencyCode]
     try {
-      const response = await fetch(uri + currencyData.coinCapCurrencyName)
-      const json = asCoinCapResponse(await response.json())
-      const errorMsg =
-        json.error ?? `Invalid USD price data for ${currencyCode}`
-      const priceUsdStr = json.data?.priceUsd ?? ''
+      const response = await fetch(baseUri + route + queryStr + currencyCode)
+      const { exchangeRate } = asRatesServerResponse(await response.json())
 
-      // Check if the response was successful or if the USD price is a valid number
-      if (!response.ok || isNaN(parseFloat(priceUsdStr))) {
-        throw new TypeError(
-          `status code: ${response.status}, error: ${errorMsg}, timestamp: ${json.timestamp}`
-        )
+      // Check if the response was successful or if the exchange rate is a valid number
+      if (!response.ok || isNaN(parseFloat(exchangeRate))) {
+        throw new TypeError(errorMsg + currencyCode)
       }
 
-      return { [currencyCode]: 1 / +priceUsdStr }
+      return { [currencyCode]: +exchangeRate }
     } catch (e) {
       console.log(e)
     }
