@@ -3,12 +3,22 @@ import React, { useEffect, useRef, useState } from 'react'
 import { CodeScreen } from './components/CodeScreen'
 import { Header } from './components/Header'
 import { SelectScreen } from './components/SelectScreen'
+import { Waves } from './components/Waves'
 import { currencies, fetchExchangeRates } from './exchangeRate'
 
 const bodyStyle = {
   margin: '0px',
   padding: '0px',
-  height: '100%'
+  height: '100%',
+  width: '100%',
+  minHeight: '1428px',
+  overflowX: 'hidden',
+  position: 'relative'
+}
+
+const wavesPositionDivStyle = {
+  position: 'absolute' as const,
+  bottom: '0'
 }
 
 const rateFetchDelay = 600000 // Variable to set delay for fetching exchange rates (milliseconds)
@@ -19,6 +29,7 @@ export function MainScene(): JSX.Element {
   const [showCodeScreen, setShowCodeScreen] = useState(false) // State variable to determine whether to show the code screen
   const [coinSelection, setCoinSelection] = useState('') // State variable that keeps track of coin selection
   const [qrCodeValue, setQrCodeValue] = useState('') // State variable that contains the value for the QR code
+  const [pauseAnimation, setPauseAnimation] = useState(true) // State variable to determine whether to pause animation
 
   useEffect(() => {
     const updateExchangeRates = (): void => {
@@ -53,6 +64,7 @@ export function MainScene(): JSX.Element {
   const handleOptionClick = (option): void => {
     setCoinSelection(option)
     setShowCodeScreen(true)
+    setPauseAnimation(false)
   }
 
   return (
@@ -63,6 +75,7 @@ export function MainScene(): JSX.Element {
           coinSelection={coinSelection}
           qrCodeValue={qrCodeValue}
           setShowCodeScreen={setShowCodeScreen}
+          setPauseAnimation={setPauseAnimation}
         />
       )}
       {!showCodeScreen && (
@@ -71,6 +84,9 @@ export function MainScene(): JSX.Element {
           handleOptionClick={handleOptionClick}
         />
       )}
+      <div style={wavesPositionDivStyle}>
+        <Waves pauseAnimation={pauseAnimation} />
+      </div>
     </>
   )
 }

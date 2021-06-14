@@ -10,6 +10,7 @@ interface CodeScreenProps {
   coinSelection: string
   qrCodeValue: string
   setShowCodeScreen: Function
+  setPauseAnimation: Function
 }
 
 const codeScreenStyle = {
@@ -26,6 +27,7 @@ const textStyle = {
 export function CodeScreen(props: CodeScreenProps): JSX.Element {
   const handleBackBtnClick = (): void => {
     props.setShowCodeScreen(false)
+    props.setPauseAnimation(true)
   }
 
   return (
