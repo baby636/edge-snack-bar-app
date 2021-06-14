@@ -1,0 +1,12 @@
+{
+  "exchangeRate": {
+    "errorMsg": "Cannot fetch valid exchange rate data for "
+  },
+  "header": {
+    "greetingStr": "Welcome to the",
+    "appNameStr": "Snack Bar"
+  },
+  "codeScreen": {
+    "selectedStr": "YOU'VE SELECTED "
+  }
+}

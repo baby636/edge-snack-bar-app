@@ -27,12 +27,14 @@
     "edge-core-js": "^0.18.0",
     "edge-currency-bitcoin": "^4.7.7",
     "express": "^4.17.1",
+    "qrcode.react": "^1.0.1",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
+    "@babel/plugin-transform-runtime": "^7.14.3",
     "@babel/preset-react": "^7.8.3",
     "@types/chai": "^4.2.9",
     "@types/express": "^4.17.2",
