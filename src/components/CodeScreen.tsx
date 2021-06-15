@@ -1,6 +1,7 @@
 import React from 'react'
 
 import constant from '../constant.json'
+import { initBgDivStyle } from '../MainScene'
 import { BackButton } from './Buttons'
 import { PaymentCode } from './PaymentCode'
 
@@ -11,6 +12,7 @@ interface CodeScreenProps {
   qrCodeValue: string
   setShowCodeScreen: Function
   setPauseAnimation: Function
+  setBgDivStyle: Function
 }
 
 const codeScreenStyle = {
@@ -28,6 +30,7 @@ export function CodeScreen(props: CodeScreenProps): JSX.Element {
   const handleBackBtnClick = (): void => {
     props.setShowCodeScreen(false)
     props.setPauseAnimation(true)
+    props.setBgDivStyle({ ...initBgDivStyle, display: 'inline' })
   }
 
   return (
