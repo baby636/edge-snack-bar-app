@@ -22,7 +22,7 @@
     "*.{js,jsx,ts,tsx}": "eslint"
   },
   "dependencies": {
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^5.0.0",
     "cors": "^2.8.5",
     "edge-core-js": "^0.18.0",
     "edge-currency-bitcoin": "^4.7.7",
